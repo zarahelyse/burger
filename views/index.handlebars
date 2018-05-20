@@ -1,0 +1,39 @@
+<h1>Burgers!</h1>
+
+<h2>Burgers that are not devoured</h2>
+
+<table>
+  {{#each burgers}}
+    {{#unless devoured}}
+        <tr>
+            <td>{{id}}</td>
+            <td>{{burger_name}}</td>
+            <td><button class="btn btn-primary devour" data-state="0" data-id="{{id}}">Devour!</button></td>            
+        </tr>
+    {{/unless}}
+  {{/each}}
+</table>
+
+<h2>Burgers that are devoured!</h2>
+<table>
+  {{#each burgers}}
+    {{#if devoured}}
+        <tr>
+            <td>{{id}}</td>
+            <td>{{burger_name}}</td>
+            <td><button class="btn btn-primary devour" data-state="1" data-id="{{id}}">Reset</button></td>            
+        </tr>
+        {{/if}}
+  {{/each}}
+</table>
+
+<h2>Add a Burger</h2>
+<form class="create-form">
+
+  <div class="form-group">
+    <label for="burgerName">Burger Name:</label>
+    <input type="text" id="burgerName" name="name">
+  </div>
+
+  <button id="addBurger" type="submit">Add Burger</button>
+</form>
